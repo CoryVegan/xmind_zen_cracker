@@ -1,6 +1,11 @@
+const { platform } = require("process")
+
 const usage_text = require("./usage.js")
 
-const app_out_dir = "./resources/app/out/"
+const app_out_dir = platform != "darwin"
+    ? "./resources/app/out/"
+    : "./Contents/Resources/app/out/"
+
 const blank_files = [
     "modal-activateAlert.js",
     "imgs/pdf-footer-zh-CN.svg",
